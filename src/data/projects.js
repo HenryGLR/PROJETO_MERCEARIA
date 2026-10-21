@@ -1,15 +1,17 @@
+const imageUrl = (filename) => `${import.meta.env.BASE_URL}images/${filename}`;
+
 export const images = {
-  craft: "/images/craft.jpg",
-  hero: "/images/hero.jpg",
-  kitchen: "/images/kitchen.jpg",
-  bedroom: "/images/bedroom.jpg",
-  closet: "/images/closet.jpg",
-  living: "/images/living.jpg",
-  office: "/images/office.jpg",
-  bathroom: "/images/bathroom.jpg",
-  commercial: "/images/commercial.jpg",
-  detail: "/images/detail.jpg",
-  kitchen2: "/images/kitchen2.jpg",
+  craft: imageUrl("craft.jpg"),
+  hero: imageUrl("hero.jpg"),
+  kitchen: imageUrl("kitchen.jpg"),
+  bedroom: imageUrl("bedroom.jpg"),
+  closet: imageUrl("closet.jpg"),
+  living: imageUrl("living.jpg"),
+  office: imageUrl("office.jpg"),
+  bathroom: imageUrl("bathroom.jpg"),
+  commercial: imageUrl("commercial.jpg"),
+  detail: imageUrl("detail.jpg"),
+  kitchen2: imageUrl("kitchen2.jpg"),
 };
 export const projects = [
   {

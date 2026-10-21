@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Abra o endereço exibido pelo Vite. Para escolher a porta usada na revisão:
+Abra o endereço exibido pelo Vite, incluindo `/PROJETO_MERCEARIA/`. Para escolher a porta usada na revisão:
 
 ```bash
 npm run dev -- --port 5175
@@ -25,7 +25,29 @@ npm run build
 npm run preview
 ```
 
-O build estático é gerado em `dist/`. Este trabalho foi entregue localmente, sem publicação e sem envio ao GitHub.
+O build estático é gerado em `dist/`. Para conferir a versão final localmente, abra `http://127.0.0.1:4173/PROJETO_MERCEARIA/` após executar `npm run preview`.
+
+## Publicar no GitHub Pages
+
+Repositório: `HenryGLR/PROJETO_MERCEARIA` (o nome e as maiúsculas são intencionais).
+
+URL: https://henryglr.github.io/PROJETO_MERCEARIA/
+
+1. No GitHub, abra **Settings → Pages → Build and deployment → Source** e selecione **GitHub Actions**. Não publique a raiz de `main` com “Deploy from a branch”.
+2. Em **Settings → Actions → General**, confirme que GitHub Actions está habilitado e que as actions oficiais `actions/*` são permitidas.
+3. Envie o commit para `main` com `git push origin main`.
+4. Em **Actions**, acompanhe **Deploy site to GitHub Pages** até os jobs `build` e `deploy` terminarem. Também é possível usar **Run workflow** na branch `main`.
+5. Se houver regras de proteção no environment `github-pages`, autorize o deploy de `main` e aprove a execução quando exigido.
+
+O workflow `.github/workflows/deploy.yml` instala com `npm ci`, executa o lint e o build e publica **somente `./dist`** como artefato do Pages. Ele declara `pages: write` e `id-token: write` no job de deploy. Não é necessário adicionar token pessoal ou versionar `dist`.
+
+### Causa da tela branca corrigida
+
+Na investigação, a página pública servia o HTML de desenvolvimento com `<script type="module" src="/src/main.jsx">`. Esse arquivo não é o bundle compilado; o GitHub Pages não compila JSX nem resolve os imports de React como o Vite. Além disso, a configuração usava a base padrão `/` e as imagens apontavam para `/images/`, fora do subdiretório do repositório.
+
+A correção define `base: "/PROJETO_MERCEARIA/"`, mantém a saída em `dist` e usa `import.meta.env.BASE_URL` nas imagens e `%BASE_URL%` no favicon. O Open Graph usa a URL pública completa. O Vite transforma o script de entrada e o CSS automaticamente em URLs `/PROJETO_MERCEARIA/assets/...` durante o build. `main.jsx`, `App.jsx` e suas importações foram verificados no build e no navegador sem necessidade de alterar a interface.
+
+Referência oficial: https://vite.dev/guide/static-deploy.html#github-pages
 
 ## Personalizar para um cliente
 
@@ -43,7 +65,7 @@ O build estático é gerado em `dist/`. Este trabalho foi entregue localmente, s
 
 O campo `phone` usa o formato internacional com apenas números, por exemplo `5511999999999`. Todos os links de WhatsApp usam a função `whatsappUrl`, mantendo o número em um único lugar.
 
-Ao preparar uma publicação real, troque os contatos fictícios, revise textos e depoimentos com o cliente e configure a imagem Open Graph com URL absoluta do domínio publicado. Revise também a disponibilidade e os direitos das fotografias para o uso pretendido. As fontes são carregadas do Google Fonts, com fontes locais de fallback.
+Ao preparar uma publicação real, troque os contatos fictícios, revise textos e depoimentos com o cliente e atualize a URL absoluta da imagem Open Graph se o domínio mudar. Revise também a disponibilidade e os direitos das fotografias para o uso pretendido. As fontes são carregadas do Google Fonts, com fontes locais de fallback.
 
 ## Funcionalidades
 
