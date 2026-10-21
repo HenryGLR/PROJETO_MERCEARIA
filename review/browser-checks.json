@@ -1,0 +1,61 @@
+{
+  "initial": {
+    "title": "Linea Casa Planejados | Móveis sob medida",
+    "h1": 1,
+    "images": [],
+    "badAnchors": [],
+    "whatsapp": true
+  },
+  "allProjects": 8,
+  "kitchens": 2,
+  "modal": true,
+  "secondImage": "/images/kitchen.jpg",
+  "escape": true,
+  "focusReturned": true,
+  "faq": true,
+  "faqCloses": true,
+  "formMessage": "Olá! Conheci a Linea Casa pelo site e gostaria de solicitar um orçamento para móveis planejados.\n\nNome: Cliente Teste\nTelefone: 11987654321\nAmbiente: Cozinhas planejadas\nCidade: São Paulo\nMensagem: Projeto com ilha e armários.",
+  "widths": [
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": false
+    },
+    {
+      "width": 500,
+      "scrollWidth": 500,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": false
+    }
+  ],
+  "menu": true,
+  "menuCloses": true,
+  "mobileModal": true,
+  "errors": [],
+  "accessibility": [],
+  "mobileAccessibility": []
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Ambientes planejados para viver melhor.",
+  "menuEscape": true,
+  "counts": {
+    "Cozinhas": 2,
+    "Quartos": 2,
+    "Salas": 2,
+    "Home offices": 1,
+    "Comerciais": 1,
+    "Todos": 8
+  },
+  "focusTrapped": true
+}
